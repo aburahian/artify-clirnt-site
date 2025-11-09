@@ -1,11 +1,11 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import { Outlet } from "react-router";
 import Footer from "../components/Footer";
+import { Outlet } from "react-router";
 
-const LogLayout = () => {
+const ArtsLayout = () => {
   return (
-    <div >
+    <div>
       <Navbar></Navbar>
       <Outlet></Outlet>
       <Footer></Footer>
@@ -13,4 +13,4 @@ const LogLayout = () => {
   );
 };
 
-export default LogLayout;
+export default ArtsLayout;

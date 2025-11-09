@@ -1,23 +1,43 @@
 import React from "react";
 import { FaAccusoft, FaAmilia } from "react-icons/fa";
 import { Link, NavLink } from "react-router";
+import useAuth from "../Hook/useAuth";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
+  const { user, signOutUser, setLoading } = useAuth();
+  const handleLogOut = () => {
+    signOutUser()
+      .then(() => {
+        toast.success("Logged out successfully 👋");
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   const links = (
     <>
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink>All Products</NavLink>
+        <NavLink to={"/arts"}>Explore Artworks</NavLink>
       </li>
-      {/* {
-            user && <>
-                <li><NavLink to="/myProducts">My Products</NavLink></li>
-                <li><NavLink to="/myBids">My Bids</NavLink></li>
-                <li><NavLink to="/createAProduct">Create A Product</NavLink></li>
-            </>
-        } */}
+      {user && (
+        <>
+          <li>
+            <NavLink to="/myProducts">My Products</NavLink>
+          </li>
+          <li>
+            <NavLink to="/myBids">My Bids</NavLink>
+          </li>
+          <li>
+            <NavLink to="/createAProduct">Create A Product</NavLink>
+          </li>
+        </>
+      )}
     </>
   );
   return (
@@ -58,9 +78,43 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <Link to={"/auth"} className="btn bg-primary">
-            Log In
-          </Link>
+          {!user ? (
+            <>
+              <Link to="/auth" className="btn bg-primary text-white">
+                Login
+              </Link>
+              <Link to="/auth/register" className="btn bg-primary text-white">
+                Register
+              </Link>
+            </>
+          ) : (
+            <div className="dropdown dropdown-end">
+              <div tabIndex={0} role="button" className="avatar">
+                <div className="w-10 h-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <img
+                    src={
+                      user.photoURL ||
+                      "https://i.ibb.co/5vFdhSM/default-avatar.png"
+                    }
+                    alt="User Avatar"
+                  />
+                </div>
+              </div>
+              <ul className="dropdown-content mt-3  p-2 shadow bg-base-100 rounded-box w-44 text-center">
+                <li className="font-semibold text-gray-700">
+                  {user.displayName || "User"}
+                </li>
+                <li>
+                  <button
+                    onClick={handleLogOut}
+                    className="btn btn-sm bg-primary text-white w-full"
+                  >
+                    Log Out
+                  </button>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </div>
