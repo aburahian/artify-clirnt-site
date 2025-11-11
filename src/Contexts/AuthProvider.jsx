@@ -18,6 +18,7 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const axiosInstance = useAxios();
 
+
   useEffect(() => {
     const userData = {
       email: user?.email,
@@ -32,9 +33,9 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
-  const updateProfileInfo = ({ displayName, photoURL }) => {
+  const updateProfileInfo = ({ displayName, photoURL, email }) => {
     setLoading(true);
-    return updateProfile(auth.currentUser, { displayName, photoURL });
+    return updateProfile(auth.currentUser, { displayName, photoURL, email });
   };
   const signInUser = (email, password) => {
     setLoading(true);

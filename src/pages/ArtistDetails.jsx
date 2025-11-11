@@ -75,7 +75,7 @@ const ArtistDetails = () => {
           {artworks.map((art) => (
             <div
               key={art._id}
-              className="card bg-white shadow-md rounded-xl overflow-hidden border border-gray-100"
+              className="flex flex-col justify-between bg-white shadow-md rounded-xl overflow-hidden border border-gray-100"
             >
               <img
                 src={art.image}
@@ -86,7 +86,7 @@ const ArtistDetails = () => {
                 <h4 className="font-semibold text-lg">{art.title}</h4>
                 <p className="text-sm text-gray-500">{art.category}</p>
                 <div className="mt-2 flex justify-between items-center text-sm text-gray-600">
-                  <span>❤️ {art.likes?.length || 0}</span>
+                  <span>❤️ {art.likedBy?.length || 0}</span>
                   <div className="mt-4">
                     <Link
                       to={`/arts/art/${art._id}`}

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import useAxiosSecure from "../Hook/useAxiosSecure";
 import NotFound from "./NotFound";
 import Spinner from "../components/Spinner";
 import ArtCard from "../components/ArtCard";
+import useAxiosSecure from "../hook/useAxiosSecure";
 
 const Home = () => {
   const axiosInstance = useAxiosSecure();

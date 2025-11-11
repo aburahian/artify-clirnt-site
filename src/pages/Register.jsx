@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router";
-import useAuth from "../Hook/useAuth";
 import { toast } from "react-toastify";
+import useAuth from "../hook/useAuth";
 
 const Register = () => {
   const {
@@ -13,6 +13,8 @@ const Register = () => {
     user,
     signInWithGoogle,
   } = useAuth();
+
+
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const handleRegister = (e) => {
@@ -36,9 +38,9 @@ const Register = () => {
     createUser(email, password)
       .then((res) => {
         setUser(res.user);
-        updateProfileInfo({ displayName, photoURL })
+        updateProfileInfo({ displayName, photoURL, email })
           .then(() => {
-            setUser({ ...user, displayName, photoURL });
+            setUser({ ...user, displayName, photoURL, email });
             setLoading(false);
           })
           .catch((err) => toast.error("Update failed: " + err.message));

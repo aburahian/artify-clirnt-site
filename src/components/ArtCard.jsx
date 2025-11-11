@@ -20,7 +20,7 @@ const ArtCard = ({ art }) => {
           <p className="text-sm text-gray-400">{art.category}</p>
           <div className="flex items-center gap-1 text-pink-500">
             <FaHeart size={16} />
-            <span>{art.likes?.length || 0}</span>
+            <span>{art.likedBy?.length || 0}</span>
           </div>
         </div>
 
