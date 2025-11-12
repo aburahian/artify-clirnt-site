@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import useAxiosSecure from "../hook/useAxiosSecure";
-import useAuth from "../hook/useAuth";
+import useAxiosSecure from "../Hook/useAxiosSecure";
+import useAuth from "../Hook/useAuth";
 import { FaStar } from "react-icons/fa";
 import { toast } from "react-toastify";
 import Spinner from "../components/Spinner";

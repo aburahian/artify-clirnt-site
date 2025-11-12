@@ -1,16 +1,57 @@
-# React + Vite
+# ARTIFY – A Creative Artwork Showcase Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Site:** [https://cheerful-cat-006046.netlify.app](https://cheerful-cat-006046.netlify.app)  
+**Server Repo:** [https://github.com/aburahian/artify-server](https://github.com/aburahian/artify-server)
 
-Currently, two official plugins are available:
+Artify is an online platform where artists can upload, share, and explore digital artworks.  
+It connects creative minds through visual expression, allowing users to display their own creations, browse others’ galleries, and curate favorites — all within a sleek, modern UI.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+✅ **Artwork CRUD System**
 
-## Expanding the ESLint configuration
+- Add, edit, and delete your own artworks
+- Private/Public visibility options
+- MongoDB backend for persistence
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Like artworks to appreciate artists
+- Add artworks to your favorites collection
+- Search by title or artist name
+- Filter by category
+- See all public artworks in a responsive card grid
+- Displays artist info and all artworks by that artist
+- Dark / Light Theme Toggle, Persistent mode saved via `localStorage`
+- Firebase Email/Password + Google Login
+- Private routes with persistent login
+- Toast notifications for all auth & CRUD feedback
+- `react-image-gallery` for artwork slideshows
+- `react-simple-typewriter` for dynamic banners
+- `react-toastify` for smooth feedback alerts
+
+---
+
+**Frontend:**
+
+- React.js (Vite)
+- React Router DOM
+- Tailwind CSS + DaisyUI
+- React Icons
+- Axios
+- React Toastify
+- React Image Gallery
+- React Simple Typewriter
+
+**Backend:**
+
+- Node.js
+- Express.js
+- MongoDB
+- Vercel Hosting
+
+**Auth & Deployment:**
+
+- Firebase Authentication
+- Netlify (Client)
+- Vercel (Server)

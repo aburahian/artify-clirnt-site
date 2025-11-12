@@ -39,10 +39,11 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
+          to={"/arts"}
+          end
           className={({ isActive }) =>
             isActive ? "border-b-2 border-primary font-bold" : "font-semibold"
           }
-          to={"/arts"}
         >
           Explore Artworks
         </NavLink>
