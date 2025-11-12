@@ -8,7 +8,7 @@ import useAxiosSecure from "../Hook/useAxiosSecure";
 const ArtGallery = () => {
   const axiosInstance = useAxiosSecure();
   const { setLoading } = useAuth();
-  const [arts, setArts] = useState([]);
+
   const [images, setImages] = useState([]);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const ArtGallery = () => {
       try {
         setLoading(true);
         const res = await axiosInstance.get("artWorks");
-        setArts(res.data);
+
         const galleryImages = res.data.map((art) => ({
           original: art.image,
           thumbnail: art.image,

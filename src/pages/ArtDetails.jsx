@@ -33,7 +33,7 @@ const ArtDetails = () => {
     axiosInstance
       .patch(`/artworks/${id}/like`, { userEmail: user.email })
       .then((res) => {
-        console.log(res.data);
+        
         setLiked(res.data.liked);
         setLikeCount(res.data.likeCount);
       })

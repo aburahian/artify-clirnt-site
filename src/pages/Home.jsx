@@ -11,8 +11,10 @@ const Home = () => {
 
   useEffect(() => {
     setLoading(true);
-    axiosInstance.get("/latest-art").then((res) => setArts(res.data));
-    setLoading(false);
+    axiosInstance.get("/latest-art").then((res) => {
+      setArts(res.data);
+      setLoading(false);
+    });
   }, [axiosInstance]);
   return (
     <div className="w-11/12 mx-auto my-30">
