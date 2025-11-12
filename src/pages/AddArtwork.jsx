@@ -1,6 +1,6 @@
 import React from "react";
-import useAuth from "../Hook/useAuth";
-import useAxiosSecure from "../Hook/useAxiosSecure";
+import useAuth from "../hook/useAuth";
+import useAxiosSecure from "../hook/useAxiosSecure";
 import { toast } from "react-toastify";
 
 const AddArtwork = () => {
@@ -29,7 +29,7 @@ const AddArtwork = () => {
       artistName: user?.displayName || "Unknown Artist",
       artistEmail: user?.email,
       createdAt: new Date(),
-      likes: 0,
+  
     };
     axiosInstance.post("/artWorks", addArt).then((res) => {
       if (res.data.insertedId) {

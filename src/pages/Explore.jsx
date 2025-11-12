@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import useAxiosSecure from "../Hook/useAxiosSecure";
 import ArtCard from "../components/ArtCard";
 import NotFound from "./NotFound";
 import Spinner from "../components/Spinner";
+import useAxiosSecure from "../hook/useAxiosSecure";
 
 const Explore = () => {
   const axiosInstance = useAxiosSecure();
   const [arts, setArts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   useEffect(() => {
     setLoading(true);
@@ -26,6 +27,15 @@ const Explore = () => {
       setLoading(false);
     });
   };
+  const handleCategoryChange = (e) => {
+  const category = e.target.value;
+  setSelectedCategory(category);
+  setLoading(true);
+  axiosInstance.get(`/artWorks?category=${category}`).then((res) => {
+    setArts(res.data);
+    setLoading(false);
+  });
+};
   return (
     <div className="w-11/12 mx-auto ">
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-8 gap-4  my-8">
@@ -42,6 +52,21 @@ const Explore = () => {
           />
           <input type="submit" value="Search" className="btn bg-primary" />
         </form>
+      </div>
+      <div className="mb-6">
+        <label className="mr-3 font-semibold">Filter by Category:</label>
+        <select
+          value={selectedCategory}
+          onChange={handleCategoryChange}
+          className="select select-bordered w-64"
+        >
+          <option disabled>Select Category</option>
+          <option>Digital Art</option>
+          <option>Illustration</option>
+          <option>Photography</option>
+          <option>Painting</option>
+          <option>3D Model</option>
+        </select>
       </div>
       <div className="border-b-2 border-primary my-9"></div>
       {loading ? (

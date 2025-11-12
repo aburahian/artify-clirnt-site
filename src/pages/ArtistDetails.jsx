@@ -10,7 +10,7 @@ const ArtistDetails = () => {
   const axiosSecure = useAxiosSecure();
   const [artist, setArtist] = useState(null);
   const [artworks, setArtworks] = useState([]);
-  console.log(artist);
+
 
   useEffect(() => {
     const fetchData = async () => {
