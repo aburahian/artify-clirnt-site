@@ -1,7 +1,7 @@
 # ARTIFY – A Creative Artwork Showcase Platform
 
-**Live Site:** [https://cheerful-cat-006046.netlify.app](https://cheerful-cat-006046.netlify.app)  
-**Server Repo:** [https://github.com/aburahian/artify-server](https://github.com/aburahian/artify-server)
+**Live Site:** [https://cheerful-cat-006046.netlify.app/](https://cheerful-cat-006046.netlify.app/)  
+
 
 Artify is an online platform where artists can upload, share, and explore digital artworks.  
 It connects creative minds through visual expression, allowing users to display their own creations, browse others’ galleries, and curate favorites — all within a sleek, modern UI.
